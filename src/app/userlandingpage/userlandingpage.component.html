@@ -1,0 +1,21 @@
+<!-- <app-nav></app-nav> -->
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <ul>
+      <a href="#"><li>Home</li></a>
+      <a [routerLink]="['/membership']"><li>Membership</li></a>
+      <a [routerLink]="['/userlandingbook']"><li>Book</li></a>
+      <a [routerLink]="['/signup']"><li>Login/Signup</li></a>
+    </ul>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <div class="image-container">
+      <h1>मेरी लाइब्रेरी में आपका स्वागत है</h1>
+      <img src="assets/images/libraryimg/library_home1.jpg" alt="">
+      <button type="button" mat-button (click)="drawer.toggle()" class="toggle-button">
+         See More
+      </button>
+    </div>
+  </div>
+</mat-drawer-container>

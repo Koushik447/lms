@@ -1,0 +1,35 @@
+<div class="card_wrapper">
+    <label for="" class="hedding"> Enter User Details</label>
+    <div class="container form-container">
+        <form>
+            <div class="mb-3">
+                <label for="userName" class="form-label">User Name</label>
+                <input type="text" class="form-control" id="userName" required>
+            </div>
+            <div class="mb-3">
+                <label for="userImage" class="form-label">User Image</label>
+                <input type="file" class="form-control" id="userImage" accept="image/*" required>
+            </div>
+            <div class="mb-3">
+                <label for="mobileNumber" class="form-label">Mobile Number</label>
+                <input type="tel" class="form-control" id="mobileNumber" required>
+            </div>
+            <div class="mb-3">
+                <label for="isStudent" class="form-label">Student or Not</label>
+                <select class="form-control" id="isStudent" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="idProofNumber" class="form-label">ID Proof Details</label>
+                <input type="text" class="form-control" id="idProofNumber" required>
+            </div>
+            <div class="mb-3">
+                <label for="entryDateTime" class="form-label">Entry Date and Time</label>
+                <input type="datetime-local" class="form-control" id="entryDateTime" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

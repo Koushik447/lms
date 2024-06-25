@@ -1,0 +1,23 @@
+<nav class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+        <h1>Library</h1>
+      </div>
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+
+    <ul class="nav-list">
+      <li><a href="student.html">Home</a></li>
+      <li><a href="./aboutpage.html">About</a></li>
+      <li><a href="./contactpage.html">Contact</a></li>
+      <li><a [routerLink]="['/signup']"><i class="fa-regular fa-user"></i></a></li>
+      <!-- <i class="ri-search-line"></i> -->
+    </ul>
+  </nav>

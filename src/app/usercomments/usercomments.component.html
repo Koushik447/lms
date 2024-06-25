@@ -1,0 +1,33 @@
+<div class="main">
+    <div class="details">
+      <div class="recentOrders">
+        <div class="cardHeader">
+          <h2>Available Comments</h2>
+          <a class="btn">284</a>
+        </div>
+  
+        <div class="cards">
+          @for(comment of comments; track comment) {
+            <a [routerLink]="['/memberprofile']">
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <div class="header-content">
+                    <mat-card-title>{{comment.username}}</mat-card-title>
+                    <!-- <mat-card-subtitle class="location">{{member.memberlocation}}</mat-card-subtitle> -->
+                  </div>
+                </mat-card-header>
+                <img mat-card-image [src]="comment.userImage" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <h4>{{comment.userComments}}</h4>
+                </mat-card-content>
+              </mat-card>
+            </a>
+
+          }
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  

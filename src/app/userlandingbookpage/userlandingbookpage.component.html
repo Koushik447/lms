@@ -1,0 +1,30 @@
+<div class="search-bar">
+    <input type="text" placeholder="Search books..." [(ngModel)]="searchQuery">
+    <button class="sort-button" (click)="toggleSortMenu()">Sort</button>
+    <button class="filter-button" (click)="toggleFilterMenu()">Filter</button>
+  </div>
+  
+  <!-- Sort Menu -->
+  <div class="sort-menu" *ngIf="sortMenuVisible">
+    <button (click)="sortBooks('priceLowToHigh')">Price: Low to High</button>
+    <button (click)="sortBooks('priceHighToLow')">Price: High to Low</button>
+  </div>
+  
+  <!-- Filter Menu -->
+  <div class="filter-menu" *ngIf="filterMenuVisible">
+    <label>
+      Filter by Author:
+      <select [(ngModel)]="selectedAuthor" (change)="filterBooks()">
+        <option *ngFor="let author of authors" [value]="author">{{ author }}</option>
+      </select>
+    </label>
+    <label>
+      Filter by Section:
+      <select [(ngModel)]="selectedSection" (change)="filterBooks()">
+        <option *ngFor="let section of sections" [value]="section">{{ section }}</option>
+      </select>
+    </label>
+  </div>
+  
+  <app-books></app-books>
+  

@@ -1,0 +1,73 @@
+<span class="big-circle">
+        <span class="inner-circle"></span>
+    </span>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form (ngSubmit)="register()">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fa-brands fa-google"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <div class="infield">
+                    <input [(ngModel)]="data.name" type="text" placeholder="Name" name="text" />
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input [(ngModel)]="data.email" type="email" placeholder="Email" name="email" />
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input [(ngModel)]="data.password" type="password" placeholder="Password" name="password"/>
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input [(ngModel)]="data.mobile" type="number" placeholder="Mobile Number" name="number" />
+                    <label></label>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form (ngSubmit)="login()">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                </div>
+                <span>or use your account</span>
+                <div class="infield">
+                    <input [(ngModel)]="logdata.email" type="email" placeholder="Email" name="email" />
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input [(ngModel)]="logdata.password" type="password" placeholder="Password" name="password" />
+                    <label></label>
+                </div>
+                <div class="option">
+                    <select name="role" id="signinRole" [(ngModel)]="logdata.role">
+                        <option value="select">Select your option</option>
+                        <option value="admin">admin</option>
+                        <option value="user">user</option>
+                        <option value="manager">manager</option>
+                    </select>
+                </div>
+                <a href="#" class="forgot">Forgot your password?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container" id="overlayCon">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button id="signInBtn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start your journey with us</p>
+                    <button id="signUpBtn">Sign Up</button>
+                </div>
+            </div>
+            <button id="overlayBtn"></button>
+        </div>
+    </div>

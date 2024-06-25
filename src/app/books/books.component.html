@@ -1,0 +1,184 @@
+<div class="main">
+  <div class="sections">
+    <div class="section">
+      <div class="section-header">
+        <h2>Best Seller</h2>
+      </div>
+      <div class="section-content">
+        <div *ngFor="let i of data['Best Seller']">
+          <mat-card>
+            <div class="card-header">
+              <img mat-card-image [src]="i['image_url']" alt="Book cover">
+            </div>
+            <mat-card-content class="bookname">
+              <h2>{{i.title}}</h2>
+              <h1>{{i.author}}</h1>
+              <p>
+                <ng-container *ngIf="i.showFullDescription; else shortDescription">
+                  {{i.description}}
+                </ng-container>
+                <ng-template #shortDescription>
+                  {{i.description | slice:0:150}}...
+                  <a (click)="toggleDescription(i)">Read more</a>
+                </ng-template>
+              </p>
+              <div class="stars">
+                <mat-icon *ngFor="let filled of getStarsArray(i.rating)" color="primary">{{ filled ? 'star' : 'star_border' }}</mat-icon>
+              </div>
+              <div class="pricerent">
+                <button mat-flat-button class="custom-primary-button">Rent The Book</button>
+                <h1>{{i.price}}</h1>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <div class="section-header">
+        <h2>History</h2>
+      </div>
+      <div class="section-content">
+        <div *ngFor="let i of data['History']">
+          <mat-card>
+            <div class="card-header">
+              <img mat-card-image [src]="i['image_url']" alt="Book cover">
+            </div>
+            <mat-card-content class="bookname">
+              <h2>{{i.title}}</h2>
+              <h1>{{i.author}}</h1>
+              <p>
+                <ng-container *ngIf="i.showFullDescription; else shortDescription">
+                  {{i.description}}
+                </ng-container>
+                <ng-template #shortDescription>
+                  {{i.description | slice:0:150}}...
+                  <a (click)="toggleDescription(i)">Read more</a>
+                </ng-template>
+              </p>
+              <div class="stars">
+                <mat-icon *ngFor="let filled of getStarsArray(i.rating)" color="primary">{{ filled ? 'star' : 'star_border' }}</mat-icon>
+              </div>
+              <div class="pricerent">
+                <button mat-flat-button class="custom-primary-button">Rent The Book</button>
+                <h1>{{i.price}}</h1>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2>Popular Books</h2>
+      </div>
+      <div class="section-content">
+        <div *ngFor="let i of data['Popular Books']">
+          <mat-card>
+            <div class="card-header">
+              <img mat-card-image [src]="i['image_url']" alt="Book cover">
+            </div>
+            <mat-card-content class="bookname">
+              <h2>{{i.title}}</h2>
+              <h1>{{i.author}}</h1>
+              <p>
+                <ng-container *ngIf="i.showFullDescription; else shortDescription">
+                  {{i.description}}
+                </ng-container>
+                <ng-template #shortDescription>
+                  {{i.description | slice:0:150}}...
+                  <a (click)="toggleDescription(i)">Read more</a>
+                </ng-template>
+              </p>
+              <div class="stars">
+                <mat-icon *ngFor="let filled of getStarsArray(i.rating)" color="primary">{{ filled ? 'star' : 'star_border' }}</mat-icon>
+              </div>
+              <div class="pricerent">
+                <button mat-flat-button class="custom-primary-button">Rent The Book</button>
+                <h1>{{i.price}}</h1>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    
+    
+
+
+
+    <div class="section">
+      <div class="section-header">
+        <h2>Programming</h2>
+      </div>
+      <div class="section-content">
+        <div *ngFor="let i of data['Programming']">
+          <mat-card>
+            <div class="card-header">
+              <img mat-card-image [src]="i['image_url']" alt="Book cover">
+            </div>
+            <mat-card-content class="bookname">
+              <h2>{{i.title}}</h2>
+              <h1>{{i.author}}</h1>
+              <p>
+                <ng-container *ngIf="i.showFullDescription; else shortDescription">
+                  {{i.description}}
+                </ng-container>
+                <ng-template #shortDescription>
+                  {{i.description | slice:0:150}}...
+                  <a (click)="toggleDescription(i)">Read more</a>
+                </ng-template>
+              </p>
+              <div class="stars">
+                <mat-icon *ngFor="let filled of getStarsArray(i.rating)" color="primary">{{ filled ? 'star' : 'star_border' }}</mat-icon>
+              </div>
+              <div class="pricerent">
+                <button mat-flat-button class="custom-primary-button">Rent The Book</button>
+                <h1>{{i.price}}</h1>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <div class="section-header">
+        <h2>Romance</h2>
+      </div>
+      <div class="section-content">
+        <div *ngFor="let i of data['Romance']">
+          <mat-card>
+            <div class="card-header">
+              <img mat-card-image [src]="i['image_url']" alt="Book cover">
+            </div>
+            <mat-card-content class="bookname">
+              <h2>{{i.title}}</h2>
+              <h1>{{i.author}}</h1>
+              <p>
+                <ng-container *ngIf="i.showFullDescription; else shortDescription">
+                  {{i.description}}
+                </ng-container>
+                <ng-template #shortDescription>
+                  {{i.description | slice:0:150}}...
+                  <a (click)="toggleDescription(i)">Read more</a>
+                </ng-template>
+              </p>
+              <div class="stars">
+                <mat-icon *ngFor="let filled of getStarsArray(i.rating)" color="primary">{{ filled ? 'star' : 'star_border' }}</mat-icon>
+              </div>
+              <div class="pricerent">
+                <button mat-flat-button class="custom-primary-button">Rent The Book</button>
+                <h1>{{i.price}}</h1>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

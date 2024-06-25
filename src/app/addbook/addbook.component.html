@@ -1,0 +1,59 @@
+
+<div class="card_wrapper">
+        <label for="" class="hedding"> Enter Book Details</label>
+        <div class="container form-container">
+           
+            <form (ngSubmit)="adbook()">
+                
+                <mat-form-field class="example-full-width">
+                    <mat-label>Enter Book Name</mat-label>
+                    <input [(ngModel)]="data.title" matInput placeholder="Book Name" type="text" name="text">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Author Name</mat-label>
+                    <input [(ngModel)]="data.author" matInput placeholder="Koushik Sarkar" type="text" name="text">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Book Description</mat-label>
+                    <input [(ngModel)]="data.description" matInput placeholder="Write Something About Books" type="text" name="text">
+                </mat-form-field>
+                <!-- <div class="custom-file-upload">
+                    <label for="image">Upload Image</label>
+                    <input type="file" id="image" (change)="onFileSelected($event, 'image')">
+                  </div> -->
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Enter The Image URL</mat-label>
+                    <input [(ngModel)]="data.image_url" matInput placeholder="http://exaple.png" type="url" name="url">
+                </mat-form-field>
+                  <!-- <div class="custom-file-upload">
+                    <label for="bookFile">Upload Book File (PDF/DOCX)</label>
+                    <input type="file" id="bookFile" accept=".pdf, .doc, .docx" (change)="onFileSelected($event, 'bookFile')">
+                  </div> -->
+                  <!-- <mat-form-field class="example-full-width">
+                    <mat-label>Enter The PDF URL</mat-label>
+                    <input [(ngModel)]="data.bookpdf" matInput placeholder="http://exaple.pdf" type="url" name="url">
+                </mat-form-field> -->
+                <!-- <div class="mb-3">
+                    <label for="publishDate" class="form-label">Publish Date</label>
+                    <input type="date" class="form-control" id="publishDate" required>
+                </div> -->
+                <mat-form-field class="example-full-width">
+                    <mat-label>Sub_Title</mat-label>
+                    <input [(ngModel)]="data.sub_title" matInput placeholder="some desc" type="text" name="text">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Price</mat-label>
+                    <input [(ngModel)]="data.price" matInput placeholder="1000" type="number" name="number">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Rating</mat-label>
+                    <input [(ngModel)]="data.rating" matInput placeholder="1-5" type="text" name="text">
+                </mat-form-field>
+                <div class="example-button-row">
+                    <button mat-flat-button color="primary">Submit</button>
+                  </div>
+            </form>
+        </div>
+      </div>
+
+    

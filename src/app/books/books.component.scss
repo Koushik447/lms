@@ -1,0 +1,135 @@
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+}
+
+.search-bar {
+  width: 100%;
+  margin-bottom: 20px;
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+}
+
+.sections {
+  width: 100%;
+}
+
+.section-header {
+  width: 100%;
+  margin-bottom: 40px;
+
+  h2 {
+    font-size: 1.5em;
+    color: #512e2e;
+    margin-bottom: 20px; /* Adjusted margin to bottom to add space below header */
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  
+  .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start; /* Align cards to the left */
+  }
+}
+
+mat-card {
+  width: 300px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.card-header {
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .menu-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    z-index: 200;
+  }
+}
+
+.bookname {
+  padding: 10px;
+  text-align: center;
+
+  h2 {
+    font-size: 1.2em;
+    color: rgb(81, 46, 46);
+    margin: 10px 0;
+  }
+
+  h1 {
+    font-size: 1em;
+    color: #555;
+  }
+
+  p {
+    height: 90px;
+    text-align: left;
+  }
+
+  .pricerent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      font-size: 20px;
+      margin-right: 20px;
+      color: #512e2e;
+    }
+
+    .custom-primary-button {
+      background-color: rgb(81, 46, 46);
+      color: white;
+
+      &:hover {
+        background-color: darken(rgb(81, 46, 46), 10%);
+      }
+    }
+  }
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+
+  mat-icon {
+    color: gold;
+    font-size: 24px;
+  }
+}

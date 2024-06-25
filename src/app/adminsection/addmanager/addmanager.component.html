@@ -1,0 +1,43 @@
+
+<div class="card_wrapper">
+    <label for="" class="hedding"> Enter Manager Details</label>
+    <div class="container form-container">
+       
+        <form>
+            <mat-form-field class="example-full-width">
+                <mat-label>Enter Manager Library Id</mat-label>
+                <input matInput placeholder="LB101">
+            </mat-form-field>
+            
+            <mat-form-field class="example-full-width">
+                <mat-label>Enter Manager Name</mat-label>
+                <input matInput placeholder="Book Name">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Enter Manager Email</mat-label>
+                <input matInput placeholder="example@gmail.com">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Enter Manager Mobile No</mat-label>
+                <input matInput placeholder="6458246785">
+
+            </mat-form-field>
+
+            <div class="custom-file-upload">
+                <label for="image">Upload Image</label>
+                <input type="file" id="image" (change)="onFileSelected($event, 'image')">
+              </div>
+              <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" placeholder="****">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+            </mat-form-field>
+            <div class="example-button-row">
+                <button mat-flat-button color="primary">Submit</button>
+              </div>
+        </form>
+    </div>
+  </div>
+

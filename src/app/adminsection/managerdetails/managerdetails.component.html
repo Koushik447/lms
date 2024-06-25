@@ -1,0 +1,58 @@
+<div class="main">
+  <div class="details">
+    <div class="recentOrders">
+      <div class="cards">
+        <!-- Loop through members using ngFor -->
+        <ng-container *ngFor="let member of members; trackBy: trackByFn">
+          <mat-card class="profile-card">
+            <mat-card-header>
+              <div mat-card-avatar class="profile-image">
+                <img [src]="member.images" alt="Profile Image">
+              </div>
+              <mat-card-title><h1>{{ member.name }}</h1></mat-card-title>
+              <mat-card-subtitle>{{ member.email }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="profile-details">
+                <p><strong>Phone:</strong> {{ member.phone }}</p>
+                <p><strong>Member ID:</strong> {{ member.memberId }}</p>
+                <p><strong>Library Name:</strong> {{ member.libraryname }}</p>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="feedback-card">
+            <mat-card-header>
+              <mat-card-title>User Broaing History</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="user-details-table">
+                <table class="simple-table">
+                  <thead>
+                    <tr>
+                      <th>Book Name</th>
+                      <th>User Name</th>
+                      <th>Issue Date</th>
+                      <th>Return Status</th>
+                      <th *ngIf="hasReturnDate()">Return Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Loop through books -->
+                    <tr *ngFor="let book of books">
+                      <td>{{ book.bookname }}</td>
+                      <td>{{ book.username }}</td>
+                      <td>{{ book.issuedate | date }}</td>
+                      <td>{{ book.returnstatus }}</td>
+                      <td *ngIf="hasReturnDate()">{{ book.returndate | date }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

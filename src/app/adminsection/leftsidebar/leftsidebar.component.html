@@ -1,0 +1,151 @@
+
+<div class="navigation" [class.active]="!isSidebarActive">
+    <ul>
+      <li>
+        <a href="#">
+          <span class="icon">
+            <i class="fa-solid fa-book"></i>
+          </span>
+          <span class="title"><h1>Library</h1></span>
+        </a>
+      </li>
+      <li>
+        <a href="/addashbord">
+          <span class="icon">
+            <i class="ri-home-3-line"></i>
+          </span>
+          <span class="title">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/viewmember']">
+          <span class="icon">
+            <i class="ri-group-line"></i>
+          </span>
+          <span class="title">Customers</span>
+        </a>
+      </li>
+      <!-- <li>
+        <a href="./request.html">
+          <span class="icon">
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+          <span class="title">Request for Permission</span>
+        </a>
+      </li> -->
+      <li>
+        <a [routerLink]="['/librarymanagerlist']">
+          <span class="icon">
+            <i class="ri-group-line"></i>
+          </span>
+          <span class="title">Library Manager</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/allbooks']">
+          <span class="icon">
+            <i class="ri-question-answer-line"></i>
+          </span>
+          <span class="title">E-Books</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon">
+            <i class="ri-question-fill"></i>
+          </span>
+          <span class="title">Help</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/setting']">
+          <span class="icon">
+            <i class="ri-settings-line"></i>
+          </span>
+          <span class="title">Settings</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon">
+            <i class="ri-lock-line"></i>
+          </span>
+          <span class="title">Password</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon">
+            <i class="ri-logout-circle-line"></i>
+          </span>
+          <span class="title">Sign Out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="main-content">
+    <div class="topbar">
+      <div class="toggle" (click)="toggleSidebar()">
+        <i class="ri-menu-fill"></i>
+      </div>
+      <div class="search">
+        <label>
+          <input type="text" placeholder="Search here">
+          <i class="ri-search-line"></i>
+        </label>
+      </div>
+      <div class="user">
+        <img src="../../../assets/images/userimg/user1.jpg" alt="">
+      </div>
+    </div>
+    
+    
+    <div class="details">
+      <div class="recentOrders">
+        <div class="cardHeader">
+          <h2>Available Books</h2>
+          <a href="#" class="btn">View All</a>
+        </div>
+    
+        <table>
+          <thead>
+            <tr>
+              <td>Book's Name</td>
+              <td>Author</td>
+              <td>Price</td>
+              <td>Delivery Status</td>
+            </tr>
+          </thead>
+    
+          <tbody>
+            <tr *ngFor="let book of books">
+              <td>{{ book.name }}</td>
+              <td>{{ book.author }}</td>
+              <td>{{ book.price }}</td>
+              <td><span class="status" [ngClass]="book.deliveryStatus.toLowerCase()">{{ book.deliveryStatus }}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+      <div class="recentCustomers">
+        <div class="cardHeader">
+          <h2>Recent Customers</h2>
+        </div>
+    
+        <table>
+          <tr *ngFor="let customer of customers">
+            <td width="60px">
+              <div class="imgBx"><img [src]="customer.image" alt="{{ customer.name }}"></div>
+            </td>
+            <td>
+              <h4>{{ customer.name }} <br> <span>{{ customer.country }}</span></h4>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+  </div>
+  

@@ -1,0 +1,31 @@
+<div class="main">
+  <div class="details">
+    <div class="recentOrders">
+      <div class="cardHeader">
+        <h2>Available Books</h2>
+        <a [routerLink]="['/addbook']" class="btn">Add Book</a>
+      </div>
+
+      <div class="cards">
+        @for(book of books; track book) {
+        <mat-card class="example-card">
+          <div class="card-header">
+            <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button" aria-label="Example icon button with a menu icon">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="renameBook(book)">Rename</button>
+              <button mat-menu-item (click)="deleteBook(book.id)">Delete</button>
+            </mat-menu>
+            <img mat-card-image [src]="book.image" alt="Photo of a Shiba Inu">
+          </div>
+          <mat-card-content class="bookname">
+            <h2>{{book.bookname}}</h2>
+            <h1>{{book.author}}</h1>
+          </mat-card-content>
+        </mat-card>
+        }
+      </div>
+    </div>
+  </div>
+</div>

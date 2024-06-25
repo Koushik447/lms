@@ -1,0 +1,128 @@
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  background-color: #f0f0f0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.details {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  overflow-y: auto;
+  max-height: 100vh;
+  align-items: start;
+}
+
+.recentOrders {
+  position: relative;
+  display: grid;
+  min-height: 600px;
+  max-height: 90vh;
+  width: 100%;
+  overflow-y: auto;
+  background: #ffffff;
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  margin-top: 30px;
+}
+
+.profile-card,
+.feedback-card {
+  max-width: 1000px;
+  height: 400px;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+
+    .profile-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .mat-card-title,
+    .mat-card-subtitle {
+      margin-left: 10px;
+    }
+  }
+
+  mat-card-content {
+    padding: 10px;
+
+    .profile-details {
+      p {
+        margin-bottom: 8px;
+      }
+    }
+
+    .feedback {
+      p {
+        margin-bottom: 8px;
+        color: #555;
+      }
+    }
+
+    .user-details-table {
+      width: 100%;
+      overflow-x: auto;
+      max-height: calc(100% - 50px); /* Adjust as necessary to leave space for the table header */
+      margin-top: 20px;
+
+      table {
+        width: max-content;
+        min-width: max-content; /* Ensure table stretches to full width when scrolling */
+        border-collapse: collapse;
+
+        th, td {
+          border: 1px solid #ddd;
+          padding: 8px;
+          text-align: left;
+        }
+
+        th {
+          background-color: #f2f2f2;
+        }
+
+        tbody tr:hover {
+          background-color: #f2f2f2;
+        }
+      }
+    }
+  }
+}

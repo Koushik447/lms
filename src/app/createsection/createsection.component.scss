@@ -1,0 +1,68 @@
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  background-color: #f0f0f0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.details {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 30px;
+  overflow-y: auto;
+  max-height: 100vh;
+  align-items: start;
+}
+
+.recentOrders {
+  position: relative;
+  display: grid;
+  min-height: 600px;
+  max-height: 90vh;
+  width: 98%;
+  overflow-y: auto;
+  background: #ffffff;
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+/* Add border bottom after each list item */
+.mat-list-item {
+  position: relative;
+}
+
+.mat-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 48px); /* Adjust width according to your layout */
+}
+
+/* Style the edit button */
+button[mat-icon-button] {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+table {
+  width: 100%;
+}
+button[mat-icon-button] {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+table {
+  width: 100%;
+}

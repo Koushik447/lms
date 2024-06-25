@@ -1,0 +1,135 @@
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  background-color: #f0f0f0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.details {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 30px;
+  overflow-y: auto;
+  max-height: 100vh;
+  align-items: start;
+}
+
+.recentOrders {
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  max-height: 90vh;
+  width: 98%;
+  overflow-y: auto;
+  background: #ffffff;
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  margin-top: 30px;
+}
+
+.profile-card,
+.feedback-card {
+  width: 100%; /* Ensure full width */
+  height: 450px; /* Adjusted height */
+  margin: 20px auto; /* Added margin */
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+
+    .profile-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .mat-card-title,
+    .mat-card-subtitle {
+      margin-left: 10px;
+    }
+  }
+
+  mat-card-content {
+    padding: 10px;
+
+    .profile-details,
+    .feedback,
+    .book-history {
+      p {
+        margin-bottom: 8px;
+        color: #555;
+      }
+    }
+
+    .book-history {
+      display: flex;
+      justify-content: space-between;
+
+      .read-books,
+      .reading-books {
+        width: 48%;
+
+        ul {
+          list-style: none;
+          padding: 0;
+
+          li {
+            display: flex;
+            margin-bottom: 10px;
+
+            .book-image {
+              width: 50px;
+              height: 70px;
+              margin-right: 10px;
+              object-fit: cover;
+            }
+
+            div {
+              h4 {
+                margin: 0;
+              }
+
+              p {
+                margin: 0;
+                color: #888;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

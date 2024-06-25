@@ -1,0 +1,40 @@
+<div class="recentOrders">
+  <div class="cardHeader">
+    <h2>Managers</h2>
+    <a [routerLink]="['/addmanager']" class="btn">Add Manager</a>
+  </div>
+
+  <div class="cards">
+    <!-- <a [routerLink]="['/managerdetails']">
+
+    </a> -->
+    <ng-container *ngFor="let member of members; trackBy: trackByMemberId">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <div class="header-content">
+            <div class="title-menu">
+              <mat-card-title>{{ member.name }}</mat-card-title>
+              <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-card-header>
+        <a [routerLink]="['/managerdetails']">
+          <img mat-card-image [src]="member.memberimage" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <h4>{{ member.email }}</h4>
+          <h4>{{ member.lib_name }}</h4>
+          <h4>{{ member.mobile }}</h4>
+        </mat-card-content>
+        </a>
+      </mat-card>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="renameMember(member)">Rename</button>
+        <button mat-menu-item (click)="deleteMember(member.id)">Delete</button>
+      </mat-menu>
+    </ng-container>
+  </div>
+</div>
