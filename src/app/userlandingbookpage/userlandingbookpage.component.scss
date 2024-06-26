@@ -1,62 +1,207 @@
+.main {
+  overflow-y: hidden; // Hide overflow on the y-axis
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+}
+
 .search-bar {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; // Ensure elements are spaced out evenly
+  margin-bottom: 10px;
+}
+
+.search-bar input {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.sort-button,
+.filter-button {
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px; // Ensure buttons have some space between them
+}
+
+.sort-menu,
+.filter-menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.sort-menu button,
+.filter-menu select {
+  display: block;
+  margin-top: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+.sections {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addbook {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+  a {
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 20px;
+    color: #fff;
+    background-color: rgb(81, 46, 46);
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+}
+
+.section-header {
+  width: 100%;
+  margin-bottom: 40px;
+
+  h2 {
+    font-size: 1.5em;
+    color: #512e2e;
+    margin-bottom: 20px;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+
+  .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+  }
+}
+
+mat-card {
+  width: 300px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.card-header {
+  position: relative;
+
+  img {
     width: 100%;
-    margin-top: 20px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .menu-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    z-index: 200;
+  }
+}
+
+.bookname {
+  padding: 10px;
+  text-align: center;
+
+  h2 {
+    font-size: 1.2em;
+    color: rgb(81, 46, 46);
+    margin: 10px 0;
+  }
+
+  h1 {
+    font-size: 1em;
+    color: #555;
+  }
+
+  p {
+    height: 90px;
+    text-align: left;
+  }
+
+  .pricerent {
     display: flex;
     align-items: center;
-    margin-left: 100px;
+    justify-content: center;
+
+    h1 {
+      font-size: 20px;
+      margin-right: 20px;
+      color: #fff;
+      background-color: rgb(81, 46, 46);
+      padding: 10px 20px;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.2s;
+    }
+
+    h1:hover {
+      background-color: rgb(81, 46, 46);
+    }
+
+    .custom-primary-button {
+      background-color: rgb(81, 46, 46);
+      color: white;
+
+      &:hover {
+        background-color: darken(rgb(81, 46, 46), 10%);
+      }
+    }
   }
-  
-  .search-bar input {
-    width: 50%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+
+  mat-icon {
+    color: gold;
+    font-size: 24px;
   }
-  
-  .sort-button, .filter-button {
-    padding: 10px;
-    margin-right: 150px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .sort-menu, .filter-menu {
-    margin-top: 10px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
-  .sort-menu button, .filter-menu select {
-    display: block;
-    margin-top: 10px;
-    padding: 5px;
-    width: 100%;
-  }
-  .search-bar {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .sort-menu,
-  .filter-menu {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
-  
-  .sections {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  button {
-    cursor: pointer;
-  }
-  
+}
+
+button {
+  cursor: pointer;
+}

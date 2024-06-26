@@ -94,7 +94,7 @@ interface Book {
   styleUrls: ['./books.component.scss']
 })
 export class BooksComponent implements OnInit {
-  books: any; // Using 'any' for books array
+  books: any; 
 
   constructor(private service: ServicesService) {}
 
@@ -108,11 +108,11 @@ export class BooksComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getAllBooks().subscribe(
-      (response: any) => { // Using 'any' for response type
+      (response: any) => { 
         this.data = response;
         for (const category in this.data) {
           if (this.data.hasOwnProperty(category)) {
-            this.data[category] = this.data[category].map((book: any) => ({ // Using 'any' for book type
+            this.data[category] = this.data[category].map((book: any) => ({ 
               ...book,
               showFullDescription: false
             }));
@@ -124,11 +124,12 @@ export class BooksComponent implements OnInit {
     );
   }
 
+
   getStarsArray(rating: number): boolean[] {
     return Array(5).fill(false).map((_, index) => index < rating);
   }
 
-  toggleDescription(book: any): void { // Using 'any' for book parameter
+  toggleDescription(book: any): void {
     book.showFullDescription = !book.showFullDescription;
   }
 }

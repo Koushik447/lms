@@ -102,4 +102,9 @@ export const routes: Routes = [
         path:"managerdetails",
         loadComponent: ()=> import("./adminsection/managerdetails/managerdetails.component").then(m => m.ManagerdetailsComponent)
     }
+    ,
+    {
+        path:"updatebook",
+        loadComponent: ()=> import("./updatebook/updatebook.component").then(m => m.UpdatebookComponent)
+    }
 ];

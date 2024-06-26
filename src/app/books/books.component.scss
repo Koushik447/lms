@@ -6,6 +6,7 @@
   padding: 20px;
   box-sizing: border-box;
   background-color: #f0f0f0;
+  overflow-y: hidden;
 }
 
 .search-bar {
@@ -44,7 +45,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: flex-start; /* Align cards to the left */
+    justify-content: flex-start; 
+    margin-left: 100px;
   }
 }
 

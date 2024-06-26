@@ -7,6 +7,7 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ServicesService {
+  [x: string]: any;
 
   constructor(
     private http: HttpClient
@@ -25,6 +26,16 @@ export class ServicesService {
 
   public addbooks(addbook:any){
     return this.http.post(`${BASE_URL}/ebook`,addbook);
+  }
+  public updatebook(id:any,update:any){
+    return this.http.put(`${BASE_URL}/ebook?ebook_id=${id}`,update);
+  }
+  public deletBook(id:any){
+    console.log(`${BASE_URL}/ebook?ebook_id=${id}`)
+    return this.http.delete(`${BASE_URL}/ebook?ebook_id=${id}`)
+  }
+  public getBookById(id:any){
+    return this.http.get(`${BASE_URL}/fetchbook?book_id=${id}`)
   }
 
 }
