@@ -71,7 +71,11 @@ logdata = {
   public login(){
     console.log(this.logdata)
     this.service.login(this.logdata).subscribe(
-      (response)=>{
+      (response:any)=>{
+        console.log(response)
+        sessionStorage.setItem('userId',response.user_id)
+
+        // sessionStorage.setItem('userId');
         alert('User Login Successfull...')
         // this.router.navigate(['/user']);
         // this.router.navigate(['/addashbord']);
@@ -85,6 +89,9 @@ logdata = {
         } else {
           alert('Invalid role...');
         }
+        // console.log("*************")
+        // const userdetails=sessionStorage.getItem('userId')
+        // console.log(userdetails)
       },
       (error)=>{
         alert('Something Went Wrong...')

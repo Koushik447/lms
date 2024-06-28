@@ -25,15 +25,7 @@ import { AllbooksComponent, Book } from '../allbooks/allbooks.component'; // Ass
 export class UpdatebookComponent implements OnInit {
   
 
-  // This is my api response ********************
-// author:"Dane Carnegie"
-// description:"About the bookdale carnegie, quoting his personal life wherein he found himself under-satisfied in a lot of situations, has synthesized his experiences and self-help messages in his book how to stop worrying and start living. The book has not just grabbed one of the most unavoidable issues in everyone s daily life ‘worry , but has parallelly provided a commentary of carnegie s exploration with how one can proceed to learn keeping worry away. It is a very intelligently knit book that would keep the reader involved in self-applying thoughts while reading the book and an urge to come back to explore more as they take a halt.the target of the book is to help readers understand what suits their respective lives best to help them reframe it in a constructive manner, subtracting worry from it and how they could focus on living each day with joy and contentment. Readers would appreciate the connect carnegie has built by taking examples of real nuances and implications one potentially faces"
-// image_url:"https://cdn.kobo.com/book-images/2bf3a60b-b30a-4851-a2d7-ce0c03145041/1200/1200/False/how-to-stop-worrying-and-start-living-19.jpg"
-// price:1149
-// rating:"4.9"
-// sub_title:"A good lifestyle can change your attitude"
-// title:"How to stop worrying and start Living"
-// _id : "6675d0f846cb06506c811db8"
+
 
 
   data:any={

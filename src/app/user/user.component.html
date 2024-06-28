@@ -33,7 +33,8 @@
         <img [src]="profilePictureUrl" alt="Profile Picture" (click)="toggleDropdown()" class="profile-picture">
         <div class="dropdown-menu" [class.show]="dropdownVisible">
           <a [routerLink]="['/userbook']">My Books</a>
-          <a [routerLink]="['/setting']">Settings</a>
+          <a [routerLink]="['/buymembership']">Buy Membership</a>
+          <a [routerLink]="['/setting']">My Profile</a>
           <a (click)="logout()">Logout</a>
         </div>
       </li>

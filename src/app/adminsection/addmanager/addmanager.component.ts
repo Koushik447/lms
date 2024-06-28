@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -6,6 +6,7 @@ import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
+import { ServicesService } from '../../../services/services.service';
 
 @Component({
   selector: 'app-addmanager',
@@ -14,7 +15,8 @@ import { RouterModule } from '@angular/router';
   templateUrl: './addmanager.component.html',
   styleUrl: './addmanager.component.scss'
 })
-export class AddmanagerComponent {
+export class AddmanagerComponent implements OnInit{
+  
   hide: boolean = true;
 [x: string]: any;
   selectedImageFile: File | null = null;
@@ -32,4 +34,32 @@ export class AddmanagerComponent {
       }
     }
   }
+
+constructor (private service:ServicesService){}
+  data:any={
+    "library_id":'',
+    "name":'',
+    "email":'',
+    "mobile":'',
+    "password":'',
+    "profile_url":'',
+  }
+
+  ngOnInit(): void {
+    // throw new Error('Method not implemented.');
+    console.log("Hiiii")
+  }
+
+  admanager(){
+    console.log(this.data)
+    this.service.addManager(this.data).subscribe(
+      (response)=>{
+        alert('Manager Added Succesfully');
+        console.log(response)
+      },
+      (error)=> console.error(error)
+
+    )
+  }
+
 }

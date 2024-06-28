@@ -1,65 +1,73 @@
 <div class="mainsetting">
-    <div class="setting-container">
-        <h1 class="page-title">Setting</h1>
-        <div class="settings-section">
-            <h2 class="settings-title">General Information</h2>
-              <div class="non-active-form non-active-one">
-                <p>Koushik Sarkar</p><i class="fas fa-pen"></i>
-                
-              </div>
-         <div>
-           <div class="non-active-form non-active-one">
-             <p class="capitalize">8538076555</p><i class="fas fa-pen"></i>
-           </div>
-          </div>
-          <!-- <div>
-            <div class="non-active-form non-active-one">
-              <p class="capitalize">c</p><i class="fas fa-pen"></i>
-            </div>
-          </div> -->
-          <div>
-            <div class="non-active-form non-active-one">
-              <p>examlpegmail.com</p><i class="fas fa-pen"></i>
-            </div>
+  <div class="setting-container">
+    <h1 class="page-title">My Profile</h1>
+    
+    <div class="settings-section">
+      <h2 class="settings-title">General Information</h2>
+      <div class="non-active-form non-active-one">
+        <p>{{ member?.name }}</p><i class="fas fa-pen"></i>
+      </div>
+      <div>
+        <div class="non-active-form non-active-one">
+          <p class="capitalize">{{ member?.mobile }}</p><i class="fas fa-pen"></i>
+        </div>
+      </div>
+      <div>
+        <div class="non-active-form non-active-one">
+          <p>{{ member?.email }}</p><i class="fas fa-pen"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-membership" *ngIf="member?.membership">
+      <h2 class="settings-title">Membership</h2>
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Membership Type: {{ member.membership.type }}</mat-card-title>
+          <mat-card-subtitle>Active: {{ member.membership.isactive ? 'Yes' : 'No' }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Activation Date: {{ member.membership.Activation_date }}</p>
+          <p>End Date: {{ member.membership.End_Date }}</p>
+          <p>Duration: {{ member.membership.duration_in_months }} months</p>
+          <p>Price: ₹{{ member.membership.price }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="settings-profilesection">
+      <h2 class="settings-title">My Profile Picture Section</h2>
+      <form class="form my-form">
+        <div class="img-upload-container">
+          <img [src]="member?.profile_url" alt="Profile Picture" class="profile-picture">
+          <input type="file" accept=".jpg, .png, .jpeg, .gif">
+          <h4>Change Your Profile Picture</h4>
+        </div>
+        <div class="formbutton">
+          <button mat-flat-button class="custom-primary-button">Save New Picture</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="settings-password">
+      <h2 class="settings-title">Password</h2>
+      <form class="form my-form">
+        <div class="form-group">
+          <div class="input-group">
+            <input name="currentPassword" placeholder="Old Password" type="password" class="form-control" autocomplete="Old Password">
+            <span class="focus-input"></span>
           </div>
         </div>
-
-
-        <div class="settings-profilesection">
-            <h2 class="settings-title">My profile</h2>
-            <form class="form my-form ">
-              <div class="img-upload-container ">
-                <!-- <label class="img-upload btn btn-bwm" style="background-image: url(&quot;/profile-placeholder.jpg&quot;);">
-                  
-                </label> -->
-                <input type="file" accept=".jpg, .png, .jpeg, .gif" value="">
-                <h4>Change Your Profile Picture</h4>
-              </div>
-              <div class="formbutton">
-                <button mat-flat-button class="custom-primary-button">Save New Picture</button>
-              </div>
-            </form>
+        <div class="form-group">
+          <div class="input-group">
+            <input name="password" placeholder="New Password" type="password" class="form-control" autocomplete="New Password">
+            <span class="focus-input"></span>
           </div>
-
-          <div class="settings-password">
-            <h2 class="settings-title">Password</h2>
-            <form class="form my-form">
-              <div class="form-group">
-                <div class="input-group">
-                  <input name="currentPassword" placeholder="Old Password" type="password" class="form-control" autocomplete="Old Password" value="">
-                  <span class="focus-input"></span>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <input name="password" placeholder="New Password" type="password" class="form-control" autocomplete="New Password" value="">
-                  <span class="focus-input"></span>
-                </div>
-              </div>
-             <div class="formbutton">
-                <button mat-flat-button class="custom-primary-button">Change Password</button>
-              </div>
-            </form>
-          </div>
+        </div>
+        <div class="formbutton">
+          <button mat-flat-button class="custom-primary-button">Change Password</button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>

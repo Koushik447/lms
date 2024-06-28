@@ -28,6 +28,9 @@ export class UserComponent implements OnInit {
       this.isLoggedIn = true;
       this.fetchProfilePicture(parsedUser.id);
     }
+    console.log("*************************************")
+    const userid=sessionStorage.getItem('userId')
+    console.log(userid)
   }
 
   fetchProfilePicture(userId: string): void {

@@ -1,116 +1,244 @@
-.mainsetting{
-    width: 100%;
-    height: 115vh;
-    background-color: rgb(81, 46, 46);
+// .mainsetting{
+//     width: 100%;
+//     height: 115vh;
+//     background-color: rgb(81, 46, 46);
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     .setting-container{
+//         width: 70%;
+//         height: 112vh;
+//         background-color: transparent;
+//         padding-top: 20px;
+//         display: flex;
+//         flex-direction: column;
+//         border-radius: 10px;
+//         h1{
+//             font-size: 40px;
+//             color: #fff;
+//             text-align: center;
+//         }
+//         .settings-section{
+//             color: #000;
+//             display: flex;
+//             flex-direction: column;
+//             h2{
+//                 font-size: 25px;
+//                 color: #fff;
+//             }
+//             .non-active-form{
+//                 display: flex;
+//                 justify-content: space-between;
+                
+//             }
+//             .non-active-one{
+//                 background-color: #a09e9e;
+//                         border-radius: 10px;
+//                 padding: 20px;
+//                 border: 1px solid black;
+//             }
+//         }
+//         .settings-profilesection{
+//             color: #000;
+//             display: flex;
+//             flex-direction: column;
+//             // background-color: #a09e9e;
+//             h2{
+//                 font-size: 25px;
+//                 color: #fff;
+//             }
+//             .my-form{
+//                 background-color: #a09e9e;
+//                         border-radius: 10px;
+//                     .img-upload-container{
+//                         display: flex;
+                        
+//                         align-items: center;
+//                         padding: 20px;
+//                         // input{
+//                         //     height: 100px;
+//                         //     width: 200px;
+//                         // }
+//                         h4{
+//                             color: fff;
+//                             align-items: center;
+//                         }
+//                     }
+//                     .formbutton{
+//                         // background-color: #a09e9e;
+//                         padding: 20px;
+//                         .custom-primary-button{
+//                             background-color: rgb(81, 46, 46);
+//                             color: #fff;
+//                             align-items: center;
+//                         }
+//                     }
+                    
+//             }
+//         }
+//         .settings-membership {
+//             color: #fff;
+//             .settings-title {
+//               font-size: 24px;
+//               margin-bottom: 20px;
+//             }
+          
+//             .example-card {
+//               margin: 10px 0;
+//               padding: 10px;
+//             }
+//           }
+          
+//         .settings-password{
+//             color: #fff;
+//             display: flex;
+//             flex-direction: column;
+//             h2{
+//                 font-size: 25px;
+//             }
+//             .my-form{
+//                 background-color: #a09e9e;
+//                 border-radius: 10px;
+//                 padding: 10px;
+//                 .form-group{
+//                     padding: 5px;
+//                     .input-group{
+//                         padding-left: 25%;
+//                         .form-control{
+//                             // height: 30px;
+//                             width: 600px;
+//                             font-size: 20px;
+//                             padding: 10px;
+//                         }
+                        
+//                     }
+//                 }
+
+//                 .formbutton{
+//                     // background-color: #a09e9e;
+//                 // padding: 20px;
+//                 margin-left: 25%;
+//                 .custom-primary-button{
+//                     background-color: rgb(81, 46, 46);
+//                     color: #fff;
+//                     align-items: center;
+//                 }
+//                 }
+//             }
+
+//         }
+//     }
+
+//     .example-card {
+//         max-width: 400px;
+//       }
+// }
+
+.mainsetting {
+  background-color:rgb(81, 46, 46) ;
+  color: #fff;
+  .setting-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .page-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .settings-section,
+  .settings-membership,
+  .settings-profilesection,
+  .settings-password {
+    margin-bottom: 30px;
+  }
+
+  .settings-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .non-active-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #040404;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .capitalize {
+    text-transform: capitalize;
+  }
+
+  .example-card {
+    margin-bottom: 20px;
+  }
+
+  .img-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+
+    img.profile-picture {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+  }
+
+  .formbutton {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .input-group {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
-    .setting-container{
-        width: 70%;
-        height: 112vh;
-        background-color: transparent;
-        padding-top: 20px;
-        display: flex;
-        flex-direction: column;
-        border-radius: 10px;
-        h1{
-            font-size: 40px;
-            color: #fff;
-            text-align: center;
-        }
-        .settings-section{
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            h2{
-                font-size: 25px;
-            }
-            .non-active-form{
-                display: flex;
-                justify-content: space-between;
-                
-            }
-            .non-active-one{
-                background-color: #a09e9e;
-                        border-radius: 10px;
-                padding: 20px;
-                border: 1px solid black;
-            }
-        }
-        .settings-profilesection{
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            // background-color: #a09e9e;
-            h2{
-                font-size: 25px;
-            }
-            .my-form{
-                background-color: #a09e9e;
-                        border-radius: 10px;
-                    .img-upload-container{
-                        display: flex;
-                        
-                        align-items: center;
-                        padding: 20px;
-                        // input{
-                        //     height: 100px;
-                        //     width: 200px;
-                        // }
-                        h4{
-                            color: fff;
-                            align-items: center;
-                        }
-                    }
-                    .formbutton{
-                        // background-color: #a09e9e;
-                        padding: 20px;
-                        .custom-primary-button{
-                            background-color: rgb(81, 46, 46);
-                            color: #fff;
-                            align-items: center;
-                        }
-                    }
-                    
-            }
-        }
-        .settings-password{
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            h2{
-                font-size: 25px;
-            }
-            .my-form{
-                background-color: #a09e9e;
-                border-radius: 10px;
-                padding: 10px;
-                .form-group{
-                    padding: 5px;
-                    .input-group{
-                        padding-left: 25%;
-                        .form-control{
-                            // height: 30px;
-                            width: 600px;
-                            font-size: 20px;
-                            padding: 10px;
-                        }
-                        
-                    }
-                }
+  }
 
-                .formbutton{
-                    // background-color: #a09e9e;
-                // padding: 20px;
-                margin-left: 25%;
-                .custom-primary-button{
-                    background-color: rgb(81, 46, 46);
-                    color: #fff;
-                    align-items: center;
-                }
-                }
-            }
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
 
-        }
+  .focus-input {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #3f51b5;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .form-control:focus + .focus-input {
+    transform: scaleX(1);
+  }
+
+  .custom-primary-button {
+    background-color: #3f51b5;
+    color: #fff;
+  }
+  .settings-membership{
+    color: #040404;
+    h2{
+      color: #fff;
     }
+  }
 }

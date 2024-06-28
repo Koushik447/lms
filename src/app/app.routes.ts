@@ -107,4 +107,9 @@ export const routes: Routes = [
         path:"updatebook",
         loadComponent: ()=> import("./updatebook/updatebook.component").then(m => m.UpdatebookComponent)
     }
+    ,
+    {
+        path:"buymembership",
+        loadComponent: ()=> import("./buymembership/buymembership.component").then(m => m.BuymembershipComponent)
+    }
 ];

@@ -1,3 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  background-color: rgb(81, 46, 46);
+  gap: 32px;
+  padding-top: 32px;
+}
+
+.activeplan {
+  margin-top: 32px;
+  width: 30%;
+  height: 550px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a3a3a3;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.membarshipplan {
+  width: 80%;
+  height: 800px;
+  margin-top: 32px;
+  padding: 16px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(81, 46, 46);
+}
+
 .pricing-plans {
   gap: 32px;
   display: flex;
@@ -5,13 +49,11 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  height: 100vh;
   padding: 64px;
   background-color: rgb(81, 46, 46);
 }
 
 .pricing-card {
-  --col: #e4e4e7;
   position: relative;
   min-width: 360px;
   height: 450px;
@@ -22,26 +64,14 @@
   background-color: #a39d9d20;
   box-shadow: 0 0 32px transparent;
   text-align: center;
-}
-
-.pricing-card.lite {
-  --col: #0891b2;
-}
-
-.pricing-card.platinam {
-  --col: #059669;
-}
-
-.pricing-card.gold {
-  --col: #c026d3;
+  transition: all 0.5s ease;
 }
 
 .pricing-card:hover {
-  border-color: var(--col);
+  border-color: #0891b2;
   background-color: #d8baba20;
   box-shadow: 0 0 32px #171717;
   transform: translateY(-16px) scale(1.02);
-  transition: all 0.5s ease;
 }
 
 .pricing-card > *:not(:last-child) {
@@ -50,7 +80,7 @@
 
 .pricing-card .heading h4 {
   padding-bottom: 12px;
-  color: var(--col);
+  color: #0891b2;
   font-size: 24px;
   font-weight: normal;
 }
@@ -63,7 +93,7 @@
 
 .pricing-card .price {
   position: relative;
-  color: var(--col);
+  color: #0891b2;
   font-size: 60px;
   font-weight: bold;
 }
@@ -103,30 +133,15 @@
   width: 200px;
   padding: 12px;
   border-radius: 4px;
-  // border: 1px solid var(--col);
+  border: 1px solid #0891b2;
   background-color: #0891b2;
   color: #e4e4e7;
   font-size: 20px;
   font-weight: bold;
 }
 
-.pricing-card .lite .cta-btn {
-  background-color: #0891b2;
-  border-color: #0891b2;
-}
-
-.pricing-card.platinam .cta-btn {
-  background-color: #059669;
-  border-color: #059669;
-}
-
-.pricing-card.gold .cta-btn {
-  background-color: #c026d3;
-  border-color: #c026d3;
-}
-
 .pricing-card .cta-btn:active {
   background-color: transparent;
-  color: var(--col);
+  color: #0891b2;
   transition: all 0.3s ease;
 }

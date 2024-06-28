@@ -38,4 +38,24 @@ export class ServicesService {
     return this.http.get(`${BASE_URL}/fetchbook?book_id=${id}`)
   }
 
+  public memberShipPlan(){
+    return this.http.get(`${BASE_URL}/membership`)
+  }
+
+  public buyMembership(data:any){
+    return this.http.post(`${BASE_URL}/user/membership`,data)
+  }
+  public libraryManager(){
+    return this.http.get(`${BASE_URL}/managers`)
+  }
+
+  public addManager(addmanager:any){
+    return this.http.post(`${BASE_URL}/managers`,addmanager)
+  }
+  public getUser(){
+    return this.http.get(`${BASE_URL}/fetchalluser`)
+  }
+  public getUserDetailById(id:any){
+    return this.http.get(`${BASE_URL}/fetchuser/id?user_id=${id}`)
+  }
 }

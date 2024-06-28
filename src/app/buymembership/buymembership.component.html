@@ -1,0 +1,49 @@
+
+<div class="main">
+  <div class="activeplan" *ngIf="member && member.membership.isactive">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Membership Type: {{ member.membership.type }}</mat-card-title>
+        <mat-card-subtitle>Active: {{ member.membership.isactive ? 'Yes' : 'No' }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Activation Date: {{ member.membership.Activation_date }}</p>
+        <p>End Date: {{ member.membership.End_Date }}</p>
+        <p>Duration: {{ member.membership.duration_in_months }} months</p>
+        <p>Price: ₹{{ member.membership.price }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="no-active-plan" *ngIf="!member || !member.membership.isactive">
+    <h1>No Active Plan</h1>
+  </div>
+  <div class="membershipplan">
+    <section class="pricing-plans">
+      <div *ngFor="let membership of data.memberships" class="pricing-card">
+        <div class="heading">
+          <h4>{{ membership.type }}</h4>
+          <p>for {{ membership.duration_in_months }} Months User</p>
+        </div>
+        <p class="price">
+          {{ membership.price }}/-
+        </p>
+        <ul class="features">
+          <li>
+            <i class="fa-solid fa-check"></i>
+            <strong>All The Library</strong> Access
+          </li>
+          <li>
+            <i class="fa-solid fa-check"></i>
+            <strong>All The Ebook's</strong> Access
+          </li>
+          <li>
+            <i class="fa-solid fa-check"></i>
+            <strong>24/7</strong> support
+          </li>
+        </ul>
+        <button class="cta-btn" (click)="selectmembership(membership._id)">SELECT</button>
+      </div>
+    </section>
+  </div>
+</div>
+

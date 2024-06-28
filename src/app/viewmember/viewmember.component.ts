@@ -1,63 +1,44 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-
-interface Viewmember{
-  membername:string,
-  memberimage:string,
-  memberlocation:string
-}
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { ServicesService } from '../../services/services.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-viewmember',
   standalone: true,
-  imports: [RouterModule,MatButtonModule,MatCardModule],
+  imports: [RouterModule, MatButtonModule, MatCardModule,CommonModule],
   templateUrl: './viewmember.component.html',
-  styleUrl: './viewmember.component.scss'
+  styleUrls: ['./viewmember.component.scss']
 })
 export class ViewmemberComponent {
+  members: any[] = []; 
 
-  member:Viewmember[]=[];
+  constructor(private service: ServicesService) {}
 
-  ngOnInit(){
-    this.member = [
-      {
-        membername:"Koushik Sarkar",
-        memberimage:"../assets/images/userimg/user1.jpg",
-        memberlocation:"Kolkata"
+  ngOnInit() {
+    this.service.getUser().subscribe(
+      (response: any) => {
+        if (Array.isArray(response)) {
+          this.members = response; 
+        } else if (response.users && Array.isArray(response.users)) {
+          this.members = response.users;
+        } else {
+          console.error('Unexpected response format:', response);
+        }
+        console.log(this.members);
       },
-      {
-        membername:"Koushik Sarkar",
-        memberimage:"../../assets/images/userimg/user1.jpg",
-        memberlocation:"Kolkata"
-      },
-      {
-        membername:"Koushik Sarkar",
-        memberimage:"../assets/images/userimg/user1.jpg",
-        memberlocation:"Kolkata"
-      },
-      {
-        membername:"Koushik Sarkar",
-        memberimage:"../assets/images/userimg/user1.jpg",
-        memberlocation:"Kolkata"
-      },
-      {
-        membername:"Koushik Sarkar",
-        memberimage:"../assets/images/userimg/user1.jpg",
-        memberlocation:"Kolkata"
-      },
-      {
-        membername:"Koushik Sarkar",
-        memberimage:"../assets/images/userimg/user1.jpg",
-        memberlocation:"Kolkata"
-      },
-      {
-        membername:"Koushik Sarkar",
-        memberimage:"../assets/images/userimg/user1.jpg",
-        memberlocation:"Kolkata"
-      }
-    ]
+      (error) => console.error(error)
+    );
   }
-  
+  trackByFn(index: number, item: any): string {
+        return item._id; 
+      }
+
+      memberid(id:any){
+        sessionStorage.setItem('userId',id)
+        console.log(id)
+      }
 }
+

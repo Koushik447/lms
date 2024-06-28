@@ -1,30 +1,32 @@
+
 <div class="main">
   <div class="details">
     <div class="recentOrders">
       <div class="cardHeader">
-        <h2>Available Member</h2>
-        <a class="btn">57</a>
+        <h2>Available Members</h2>
+
       </div>
 
       <div class="cards">
-        @for(member of member; track member) {
-          <a [routerLink]="['/memberprofile']">
+        <ng-container *ngFor="let member of members; trackBy: trackByFn">
+          <a [routerLink]="['/memberprofile']" (click)="memberid(member._id)">
             <mat-card class="example-card">
               <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
                 <div class="header-content">
-                  <mat-card-title>{{member.membername}}</mat-card-title>
+                  <mat-card-title>{{ member.name }}</mat-card-title>
                 </div>
               </mat-card-header>
-              <img mat-card-image [src]="member.memberimage" alt="Photo of a Shiba Inu">
+              <img mat-card-image [src]="member.profile_url" alt="Profile Image">
               <mat-card-content>
-                <h4>{{member.memberlocation}}</h4>
+                <h4>Phone No :- {{ member.mobile }}</h4>
+                <h4>Email ID :- {{ member.email }}</h4>
+                <h4>Registerdate :- {{ member.register_date }}</h4>
               </mat-card-content>
             </mat-card>
           </a>
-        }
-        
+        </ng-container>
       </div>
     </div>
   </div>
 </div>
+

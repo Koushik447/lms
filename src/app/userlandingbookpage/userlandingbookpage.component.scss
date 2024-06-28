@@ -1,5 +1,5 @@
 .main {
-  overflow-y: hidden; // Hide overflow on the y-axis
+  overflow-y: hidden; 
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
   margin-top: 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between; // Ensure elements are spaced out evenly
+  justify-content: space-between; 
   margin-bottom: 10px;
 }
 

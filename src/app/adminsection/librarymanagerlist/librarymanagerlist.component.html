@@ -5,36 +5,24 @@
   </div>
 
   <div class="cards">
-    <!-- <a [routerLink]="['/managerdetails']">
-
-    </a> -->
-    <ng-container *ngFor="let member of members; trackBy: trackByMemberId">
-      <mat-card class="example-card">
+    <ng-container *ngFor="let manager of managers">
+      <mat-card *ngIf="manager._id">
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
+          <div mat-card-avatar class="example-header-image">
+            <img [src]="manager.profile_url" alt="Profile Image">
+          </div>
           <div class="header-content">
             <div class="title-menu">
-              <mat-card-title>{{ member.name }}</mat-card-title>
-              <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
-                <mat-icon>more_vert</mat-icon>
-              </button>
+              <mat-card-title>{{ manager.name }}</mat-card-title>
             </div>
           </div>
         </mat-card-header>
-        <a [routerLink]="['/managerdetails']">
-          <img mat-card-image [src]="member.memberimage" alt="Photo of a Shiba Inu">
         <mat-card-content>
-          <h4>{{ member.email }}</h4>
-          <h4>{{ member.lib_name }}</h4>
-          <h4>{{ member.mobile }}</h4>
+          <h4>Email: {{ manager.email }}</h4>
+          <h4>Mobile: {{ manager.mobile }}</h4>
+          <h4>Library ID: {{ manager.library_id }}</h4>
         </mat-card-content>
-        </a>
       </mat-card>
-
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="renameMember(member)">Rename</button>
-        <button mat-menu-item (click)="deleteMember(member.id)">Delete</button>
-      </mat-menu>
     </ng-container>
   </div>
 </div>
