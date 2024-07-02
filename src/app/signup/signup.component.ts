@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ServicesService } from '../../services/services.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -72,14 +73,11 @@ logdata = {
     console.log(this.logdata)
     this.service.login(this.logdata).subscribe(
       (response:any)=>{
-        console.log(response)
+        // console.log(response)
         sessionStorage.setItem('userId',response.user_id)
 
-        // sessionStorage.setItem('userId');
+
         alert('User Login Successfull...')
-        // this.router.navigate(['/user']);
-        // this.router.navigate(['/addashbord']);
-        // this.router.navigate(['/librarymanager']);
         if (this.logdata.role === 'user') {
           this.router.navigate(['/user']);
         } else if (this.logdata.role === 'admin') {
@@ -87,14 +85,14 @@ logdata = {
         } else if (this.logdata.role === 'manager') {
           this.router.navigate(['/librarymanager']);
         } else {
-          alert('Invalid role...');
+
+          Swal.fire("Invalid role...");
         }
-        // console.log("*************")
-        // const userdetails=sessionStorage.getItem('userId')
-        // console.log(userdetails)
+
       },
       (error)=>{
-        alert('Something Went Wrong...')
+
+        Swal.fire("Something Went Wrong...");
         console.log(error)
       }
     )

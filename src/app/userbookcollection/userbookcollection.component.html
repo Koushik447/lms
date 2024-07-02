@@ -1,28 +1,65 @@
 <div class="main">
   <div class="sections">
-    @for(section of sections; track section) {
-      <div class="section">
-        <div class="section-header">
-          <h2>{{section.name}}</h2>
-        </div>
-        <div class="cards">
-          @for(book of section.filteredBooks; track book) {
-            <mat-card class="example-card">
-              <div class="card-header">
-                <img mat-card-image [src]="book.image" alt="Book cover">
-              </div>
-              <mat-card-content class="bookname">
-                <h2>{{book.bookname}}</h2>
-                <h1>{{book.author}}</h1>
-                <p>{{book.description}}</p>
-                @if(section.name === 'Already Read Books') {
-                  <button mat-raised-button class="feedback-button" (click)="giveFeedback(book.id)">Give Feedback</button>
-                }
-              </mat-card-content>
-            </mat-card>
-          }
+    <div class="section">
+      <div class="section-header">
+        <h2>Books</h2>
+      </div>
+      <div class="cards">
+        <div *ngFor="let book of books" class="book-card">
+          <mat-card class="example-card">
+            <div class="card-header">
+              <img mat-card-image [src]="book.image_url" alt="Book cover">
+            </div>
+            <mat-card-content class="bookname">
+              <h2>{{ book.title }}</h2>
+              <h1>{{ book.author }}</h1>
+            </mat-card-content>
+          </mat-card>
         </div>
       </div>
-    }
+    </div>
+
+    
+    <div class="section">
+      <div class="section-header">
+        <h2>Active Books</h2>
+      </div>
+      <div class="cards">
+        <div *ngFor="let book of activeBooks" class="book-card">
+          <mat-card class="example-card">
+            <div class="card-header">
+              <img mat-card-image [src]="book.image_url" alt="Book cover">
+            </div>
+            <mat-card-content class="bookname">
+              <h2>{{ book.title }}</h2>
+              <h1>{{ book.author }}</h1>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    
+    
+
+    <div class="section">
+      <div class="section-header">
+        <h2>Already Read Books</h2>
+      </div>
+      <div class="cards">
+        <div *ngFor="let book of readingHistory" class="book-card">
+          <mat-card class="example-card">
+            <div class="card-header">
+              <img mat-card-image [src]="book.image_url" alt="Book cover">
+            </div>
+            <mat-card-content class="bookname">
+              <h2>{{ book.title }}</h2>
+              <h1>{{ book.author }}</h1>
+              <button mat-raised-button class="feedback-button" (click)="giveFeedback(book._id)">Give Feedback</button>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

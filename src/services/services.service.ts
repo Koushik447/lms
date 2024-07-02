@@ -58,4 +58,7 @@ export class ServicesService {
   public getUserDetailById(id:any){
     return this.http.get(`${BASE_URL}/fetchuser/id?user_id=${id}`)
   }
+  public getUserRentedBooks(id:any){
+    return this.http.get(`${BASE_URL}/get/rentbook?user_id=${id}`)
+  }
 }

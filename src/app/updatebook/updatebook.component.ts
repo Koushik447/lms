@@ -6,6 +6,7 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ServicesService } from '../../services/services.service';
 import { AllbooksComponent, Book } from '../allbooks/allbooks.component'; // Assuming Book interface is exported from allbooks.component.ts
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-updatebook',
@@ -84,25 +85,41 @@ export class UpdatebookComponent implements OnInit {
       }
     );
   }
-  deletebook(){
-    const confirmed = confirm('Are you sure you want to delete the book?');
-    const bookid=sessionStorage.getItem('bookId')
-    console.log(bookid)
-    if (confirmed) {
-      console.log('Your book is now deletting .......')
-      this.service.deletBook(bookid).subscribe(
-        (response:any)=>{
-          alert(response.message);
-          //Redirect the the allBook component....
-
-          this.router.navigate(['/allbooks']);
-        },
-        (error)=>{
-          console.error(error);
-          alert(error.statusText)
-        }
-      )
-
-    }
+  deletebook() {
+    const bookid = sessionStorage.getItem('bookId');
+    console.log(bookid);
+    
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log('Your book is now deleting .......');
+        this.service.deletBook(bookid).subscribe(
+          (response: any) => {
+            Swal.fire({
+              title: "Deleted!",
+              text: response.message,
+              icon: "success"
+            }).then(() => {
+              this.router.navigate(['/allbooks']);
+            });
+          },
+          (error) => {
+            console.error(error);
+            Swal.fire({
+              title: "Error!",
+              text: error.statusText,
+              icon: "error"
+            });
+          }
+        );
+      }
+    });
   }
 }

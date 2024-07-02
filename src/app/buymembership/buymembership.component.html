@@ -1,6 +1,8 @@
 
 <div class="main">
+
   <div class="activeplan" *ngIf="member && member.membership.isactive">
+    <h1>Active Plan</h1>
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title>Membership Type: {{ member.membership.type }}</mat-card-title>
@@ -18,7 +20,9 @@
     <h1>No Active Plan</h1>
   </div>
   <div class="membershipplan">
+    <h1 class="memberword">Membership Plan</h1>
     <section class="pricing-plans">
+      
       <div *ngFor="let membership of data.memberships" class="pricing-card">
         <div class="heading">
           <h4>{{ membership.type }}</h4>

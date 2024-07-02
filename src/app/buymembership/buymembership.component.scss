@@ -12,22 +12,38 @@ body {
   width: 100%;
   background-color: rgb(81, 46, 46);
   gap: 32px;
-  padding-top: 32px;
 }
 
 .activeplan {
-  margin-top: 32px;
+  margin-top: -80px;
   width: 30%;
   height: 550px;
   border-radius: 8px;
-  background-color: #ffffff;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #a3a3a3;
   font-size: 24px;
   font-weight: bold;
   text-align: center;
+  .example-card {
+    position: relative;
+    min-width: 360px;
+    height: 300px;
+    padding: 32px;
+    color: #e4e4e7;
+    border-radius: 4px;
+    border: 1px solid #262626;
+    background-color: #a39d9d20;
+    box-shadow: 0 0 32px transparent;
+    text-align: left;
+    transition: all 0.5s ease;
+    mat-card-subtitle {
+      color: #0891b2;
+      font-size: 20px;
+    }
+  }
 }
 
 .membarshipplan {
@@ -37,9 +53,18 @@ body {
   padding: 16px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgb(81, 46, 46);
+}
+
+.memberword {
+  color: #a3a3a3; 
+  font-size: 30px; 
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 32px; 
 }
 
 .pricing-plans {

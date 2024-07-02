@@ -10,6 +10,26 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { ServicesService } from '../../services/services.service';
 
+interface Member {
+  _id: string;
+  name: string;
+  email: string;
+  mobile: string;
+  profile_url: string;
+  register_date: string;
+  active_books: any[];
+  reading_book_history: any[];
+  membership: {
+    type: string;
+    duration_in_months: number;
+    price: number;
+    Activation_date: string;
+    End_Date: string;
+  };
+  membershipStatus?: boolean; 
+  feedback?: string;
+}
+
 @Component({
   selector: 'app-memberprofile',
   standalone: true,
@@ -28,28 +48,39 @@ import { ServicesService } from '../../services/services.service';
   styleUrls: ['./memberprofile.component.scss']
 })
 export class MemberprofileComponent {
-  members: any[] = [];
+  members: Member[] = [];
 
   constructor(private service: ServicesService) {}
 
   ngOnInit() {
-    const userid = sessionStorage.getItem('userId');
-    this.service.getUserDetailById(userid).subscribe(
+    const userId = sessionStorage.getItem('userId');
+    
+    this.service.getUserDetailById(userId).subscribe(
       (response: any) => {
-        console.log(response);
-        // Ensure response is an array
+        console.log(response)
         if (Array.isArray(response)) {
           this.members = response;
         } else {
-          // If the response is an object, wrap it in an array
           this.members = [response];
         }
+        this.members.forEach(member => {
+          member.membershipStatus = this.isMembershipActive(member);
+        });
       },
       (error) => console.error(error)
     );
   }
 
-  trackByMemberId(index: number, member: any): string {
+  trackByMemberId(index: number, member: Member): string {
     return member._id;
+  }
+
+  isMembershipActive(member: Member): boolean {
+    if (member.membership && member.membership.End_Date) {
+      const currentDate = new Date();
+      const endDate = new Date(member.membership.End_Date);
+      return endDate >= currentDate;
+    }
+    return false;
   }
 }

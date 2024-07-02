@@ -25,14 +25,6 @@
           <span class="title">Customers</span>
         </a>
       </li>
-      <!-- <li>
-        <a href="./request.html">
-          <span class="icon">
-            <i class="fa-solid fa-arrow-right"></i>
-          </span>
-          <span class="title">Request for Permission</span>
-        </a>
-      </li> -->
       <li>
         <a [routerLink]="['/librarymanagerlist']">
           <span class="icon">
@@ -65,20 +57,13 @@
           <span class="title">Settings</span>
         </a>
       </li>
+
       <li>
-        <a href="#">
-          <span class="icon">
-            <i class="ri-lock-line"></i>
-          </span>
-          <span class="title">Password</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
+        <a >
           <span class="icon">
             <i class="ri-logout-circle-line"></i>
           </span>
-          <span class="title">Sign Out</span>
+          <span class="title" (click)="logout()">Sign Out</span>
         </a>
       </li>
     </ul>
@@ -107,24 +92,22 @@
           <h2>Available Books</h2>
           <a href="#" class="btn">View All</a>
         </div>
-    
         <table>
           <thead>
             <tr>
               <td>Book's Name</td>
               <td>Author</td>
               <td>Price</td>
-              <td>Delivery Status</td>
             </tr>
           </thead>
-    
           <tbody>
-            <tr *ngFor="let book of books">
-              <td>{{ book.name }}</td>
-              <td>{{ book.author }}</td>
-              <td>{{ book.price }}</td>
-              <td><span class="status" [ngClass]="book.deliveryStatus.toLowerCase()">{{ book.deliveryStatus }}</span></td>
-            </tr>
+            <ng-container *ngFor="let category of objectKeys(data)">
+              <tr *ngFor="let book of data[category]">
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.price }}</td>
+              </tr>
+            </ng-container>
           </tbody>
         </table>
       </div>
@@ -133,19 +116,22 @@
         <div class="cardHeader">
           <h2>Recent Customers</h2>
         </div>
-    
         <table>
-          <tr *ngFor="let customer of customers">
+          <tr *ngFor="let member of members">
             <td width="60px">
-              <div class="imgBx"><img [src]="customer.image" alt="{{ customer.name }}"></div>
+              <div class="imgBx"><img [src]="member.profile_url" alt="{{ member.name }}"></div>
             </td>
             <td>
-              <h4>{{ customer.name }} <br> <span>{{ customer.country }}</span></h4>
+              <h4>{{ member.name }}</h4>
             </td>
           </tr>
         </table>
       </div>
+      
+      
     </div>
+    
+    
     
   </div>
   

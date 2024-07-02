@@ -42,7 +42,7 @@ export class AddbookComponent implements OnInit{
     //     alert("Something Went Wrong...")
     //   }
     // )
-    console.log("Hii")
+    // console.log("Hii")
   }
   adbook(){
     console.log(this.data);

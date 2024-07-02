@@ -54,8 +54,8 @@
                 <mat-icon>menu</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
-                <a [routerLink]="['/updatebook']"><button mat-menu-item (click)="renameBook(i._id)">Rename</button></a>
-                <button mat-menu-item (click)="deleteBook(i._id)">Delete</button>
+                <a [routerLink]="['/updatebook']"><button mat-menu-item (click)="renameBook(i._id)">Edit</button></a>
+                <!-- <button mat-menu-item (click)="deleteBook(i._id)">Delete</button> -->
               </mat-menu>
               <img mat-card-image [src]="i['image_url']" alt="Book cover">
             </div>
@@ -93,8 +93,8 @@
                 <mat-icon>menu</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
-                <a [routerLink]="['/updatebook']"><button mat-menu-item (click)="renameBook(i._id)">Rename</button></a>
-                <button mat-menu-item (click)="deleteBook(i._id)">Delete</button>
+                <a [routerLink]="['/updatebook']"><button mat-menu-item (click)="renameBook(i._id)">Edit</button></a>
+                <!-- <button mat-menu-item (click)="deleteBook(i._id)">Delete</button> -->
               </mat-menu>
               <img mat-card-image [src]="i['image_url']" alt="Book cover">
             </div>
@@ -132,8 +132,8 @@
                 <mat-icon>menu</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
-                <a [routerLink]="['/updatebook']"><button mat-menu-item (click)="renameBook(i._id)">Rename</button></a>
-                <button mat-menu-item (click)="deleteBook(i._id)">Delete</button>
+                <a [routerLink]="['/updatebook']"><button mat-menu-item (click)="renameBook(i._id)">Edit</button></a>
+                <!-- <button mat-menu-item (click)="deleteBook(i._id)">Delete</button> -->
               </mat-menu>
               <img mat-card-image [src]="i['image_url']" alt="Book cover">
             </div>
@@ -171,8 +171,7 @@
                 <mat-icon>menu</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
-                <a [routerLink]="['/updatebook']"><button mat-menu-item (click)="renameBook(i._id)">Rename</button></a>
-                <button mat-menu-item (click)="deleteBook(i._id)">Delete</button>
+                <a [routerLink]="['/updatebook']"><button mat-menu-item (click)="renameBook(i._id)">Edit</button></a>
               </mat-menu>
               <img mat-card-image [src]="i['image_url']" alt="Book cover">
             </div>
@@ -198,5 +197,81 @@
       </div>
     </div>
 
+    <div class="section">
+      <div class="section-header">
+        <h2>Recommended</h2>
+      </div>
+      <div class="section-content">
+        <div *ngFor="let i of data['Recommended']">
+          <mat-card class="example-card">
+            <div class="card-header">
+              <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button" aria-label="Example icon button with a menu icon">
+                <mat-icon>menu</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <a [routerLink]="['/updatebook']"><button mat-menu-item (click)="renameBook(i._id)">Edit</button></a>
+              </mat-menu>
+              <img mat-card-image [src]="i['image_url']" alt="Book cover">
+            </div>
+            <mat-card-content class="bookname">
+              <h2>{{i.title}}</h2>
+              <h1>{{i.author}}</h1>
+              <p>
+                <ng-container *ngIf="i.showFullDescription; else shortDescription">
+                  {{i.description}}
+                </ng-container>
+                <ng-template #shortDescription>
+                  {{i.description | slice:0:150}}...
+                  <a (click)="toggleDescription(i)">Read more</a>
+                </ng-template>
+              </p>
+
+              <div class="pricerent">
+                <h1>Price {{i.price}}</h1>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <div class="section-header">
+        <h2>Featured Books</h2>
+      </div>
+      <div class="section-content">
+        <div *ngFor="let i of data['Featured Books']">
+          <mat-card class="example-card">
+            <div class="card-header">
+              <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button" aria-label="Example icon button with a menu icon">
+                <mat-icon>menu</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <a [routerLink]="['/updatebook']"><button mat-menu-item (click)="renameBook(i._id)">Edit</button></a>
+              </mat-menu>
+              <img mat-card-image [src]="i['image_url']" alt="Book cover">
+            </div>
+            <mat-card-content class="bookname">
+              <h2>{{i.title}}</h2>
+              <h1>{{i.author}}</h1>
+              <p>
+                <ng-container *ngIf="i.showFullDescription; else shortDescription">
+                  {{i.description}}
+                </ng-container>
+                <ng-template #shortDescription>
+                  {{i.description | slice:0:150}}...
+                  <a (click)="toggleDescription(i)">Read more</a>
+                </ng-template>
+              </p>
+
+              <div class="pricerent">
+                <h1>Price {{i.price}}</h1>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

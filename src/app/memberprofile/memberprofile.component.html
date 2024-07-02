@@ -1,78 +1,3 @@
-<!-- <div class="main">
-  <div class="details">
-    <div class="recentOrders">
-      <div class="cards">
-        <ng-container *ngFor="let member of members; trackBy: trackByMemberId">
-          <mat-card class="profile-card">
-            <mat-card-header>
-              <div mat-card-avatar class="profile-image">
-                <img [src]="member.profile_url" alt="Profile Image">
-              </div>
-              <mat-card-title><h1>{{ member.name }}</h1></mat-card-title>
-              <mat-card-subtitle>{{ member.email }}</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-              <div class="profile-details">
-                <p><strong>Phone:</strong> {{ member.mobile }}</p>
-                <p><strong>Join Date:</strong> {{ member.register_date | date }}</p>
-                <p><strong>Membership Plan:</strong> {{ member.membership.type }}</p>
-                <p><strong>Membership End Date:</strong> {{ member.membership.End_Date | date }}</p>
-                <p><strong>Membership Status:</strong> {{ member.membershipStatus ? 'Active' : 'Inactive' }}</p>
-              </div>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card class="feedback-card">
-            <mat-card-header>
-              <mat-card-title>Feedback</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <div class="feedback">
-                <p>{{ member.feedback }}</p>
-              </div>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card class="book-details-card">
-            <mat-card-header>
-              <mat-card-title>User Book Details</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <div class="book-history">
-                <div class="read-books">
-                  <h3>Already Read Books</h3>
-                  <ul>
-                    <li *ngFor="let book of member.reading_book_history">
-                      <img [src]="book.image_url" alt="{{ book.bookname }}" class="book-image">
-                      <div>
-                        <h4>{{ book.title }}</h4>
-                        <p>{{ book.author }}</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div class="active-books">
-                  <h3>Currently Reading</h3>
-                  <ul>
-                    <li *ngFor="let book of member.active_books">
-                      <img [src]="book.image_url" alt="{{ book.bookname }}" class="book-image">
-                      <div>
-                        <h4>{{ book.title }}</h4>
-                        <p>{{ book.author }}</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </mat-card-content>
-          </mat-card>
-        </ng-container>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
 <div class="main">
   <div class="details">
     <div class="recentOrders">
@@ -90,9 +15,16 @@
               <div class="profile-details">
                 <p><strong>Phone:</strong> {{ member.mobile }}</p>
                 <p><strong>Join Date:</strong> {{ member.register_date | date }}</p>
-                <p><strong>Membership Plan:</strong> {{ member.membership.type }}</p>
-                <p><strong>Membership End Date:</strong> {{ member.membership.End_Date | date }}</p>
-                <p><strong>Membership Status:</strong> {{ member.membershipStatus ? 'Active' : 'Inactive' }}</p>
+                
+                <div *ngIf="member.membershipStatus">
+                  <p><strong>Membarship Start Date:</strong> {{ member.membership.Activation_date| date }}</p>
+                  <p><strong>Membership Plan:</strong> {{ member.membership.type }}</p>
+                  <p><strong>Membership End Date:</strong> {{ member.membership.End_Date | date }}</p>
+                  <p><strong>Membership Status:</strong> Active</p>
+                </div>
+                <div *ngIf="!member.membershipStatus">
+                  <p><strong>Membership Status:</strong> Inactive</p>
+                </div>
               </div>
             </mat-card-content>
           </mat-card>

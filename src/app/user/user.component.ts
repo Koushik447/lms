@@ -21,16 +21,14 @@ export class UserComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // Fetch user data
+
     const user = localStorage.getItem('user');
     if (user) {
       const parsedUser = JSON.parse(user);
       this.isLoggedIn = true;
       this.fetchProfilePicture(parsedUser.id);
     }
-    console.log("*************************************")
-    const userid=sessionStorage.getItem('userId')
-    console.log(userid)
+
   }
 
   fetchProfilePicture(userId: string): void {
@@ -59,6 +57,14 @@ export class UserComponent implements OnInit {
 
   logout(): void {
     localStorage.removeItem('user');
+    sessionStorage.clear();
+    
+    // Clear Cache
+    if ('caches' in window) {
+      caches.keys().then((names) => {
+        names.forEach(name => caches.delete(name));
+      });
+    }
     this.isLoggedIn = false;
     window.location.href = '/signup'; 
   }
